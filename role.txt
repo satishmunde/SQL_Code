@@ -1,0 +1,70 @@
+to create a user
+
+syntax
+create user username identified by password;
+
+example
+create user satish identified by pwd;
+
+------------------------------------------------
+to change user password
+
+syntax 
+alter user username identified by password;
+
+example
+alter user sattu identified by pwd;
+
+-------------------------------------------------
+what is privileges
+
+is a type of permission to execute certain action on the database
+
+--------------------------------------------------------------------
+to provide a privileges to user
+
+syntax
+grant privileges on tablename1,tablename2 to username1,username2;
+
+example
+grant select on product,emp to satish,satish1;
+
+------------------------------------------------------
+what is role
+
+a role is mechanism that can be used to allow authourization. 
+role is one type of object. it accept one or more privileges and that all privileges assign to the multiple user.
+---------------------------------------------------------------------------
+to create a role
+
+Syntax 
+create role rolename;
+
+example
+create role sysrole;
+-----------------------------------------------------------
+to assign the values to the role
+
+syntax
+grant privilegesname on tablename to rolename1,rolename2;
+
+example
+grant select,update on product to sysrole;
+
+-------------------------------------------------------------
+to assign the role the the user
+
+
+syntax
+grant rolename to username1,username2;
+
+example
+grant sysrole to satish,satish1;
+---------------------------------------------------------------------
+Revoke all privileges from role
+
+syntax
+revoke privilegesname from role;
+
+example
+revoke all privileges from sysrole;

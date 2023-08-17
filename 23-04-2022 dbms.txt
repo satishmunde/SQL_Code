@@ -1,0 +1,139 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Sat Apr 23 16:37:37 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> conn
+Enter user-name: SYSTEM
+Enter password:
+Connected.
+SQL> select *from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY
+---------- ---------- -------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer
+         2 Vaibhav    Basmath  CS         Developer
+         3 Shraddha   Pusad    CS         Developer
+         4 Vijay      Kinwat   Art        Collecter
+
+SQL> alter table emp
+  2  add(TA number(5),Gross_Salary number(7));
+
+Table altered.
+
+SQL> select *from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA  GROSS_SALARY
+---------- ---------- -------- ---------- ---------- ---------- ----------  ------------
+
+         1 Satish     Kandhar  CS         Developer
+
+
+         2 Vaibhav    Basmath  CS         Developer
+
+
+         3 Shraddha   Pusad    CS         Developer
+
+         4 Vijay      Kinwat   Art        Collecter
+
+
+
+SQL> update emp
+  2  set Salary=60000
+  3  where post='Developer';
+
+3 rows updated.
+
+SQL> update emp
+  2  set salary=65000
+  3  where post='Collecter';
+
+1 row updated.
+
+SQL> update emp
+  2  set ta=5000;
+
+4 rows updated.
+
+SQL> select *from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+GROSS_SALARY
+------------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+
+
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+GROSS_SALARY
+------------
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+
+
+
+SQL>  alter table emp drop column Gross_salary;
+
+Table altered.
+
+SQL> select *from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+SQL> alter table emp
+  2  add(Experience number(2),
+  3  Office varchar(8));
+
+Table altered.
+
+SQL> select *from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+EXPERIENCE OFFICE
+---------- --------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+
+
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+EXPERIENCE OFFICE
+---------- --------
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+
+
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(4)
+ NAME                                               VARCHAR2(10)
+ CITY                                               VARCHAR2(8)
+ FIELD                                              VARCHAR2(10)
+ POST                                               VARCHAR2(10)
+ SALARY                                             NUMBER(6)
+ TA                                                 NUMBER(5)
+ EXPERIENCE                                         NUMBER(2)
+ OFFICE                                             VARCHAR2(8)
+
+SQL>

@@ -1,0 +1,81 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Sat May 28 14:35:07 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> conn system/2002
+Connected.
+SQL> create user hulk indentified by hulk default datafile sybsc size 5m;
+create user hulk indentified by hulk default datafile sybsc size 5m
+                 *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> create user hulk indentified by hulk default sybsc quota 5m on sybsc;
+create user hulk indentified by hulk default sybsc quota 5m on sybsc
+                 *
+ERROR at line 1:
+ORA-00922: missing or invalid option
+
+
+SQL> create user hulk identified by hulk default sybsc quota 5m on sybsc;
+create user hulk identified by hulk default sybsc quota 5m on sybsc
+                                            *
+ERROR at line 1:
+ORA-00921: unexpected end of SQL command
+
+
+SQL> show tablespace
+SP2-0158: unknown SHOW option "tablespace"
+SQL> select tablespace_name,username,max_bytes/1024/1024 as max_bytes from dba_ts_quotas;
+
+TABLESPACE_NAME                USERNAME                        MAX_BYTES
+------------------------------ ------------------------------ ----------
+SYBSCBIG                       SYSTEM1                                 5
+USERS                          HR                             -9.537E-07
+
+SQL> create user hulk identified by hulk default sybscbig quota 5m on sybscbig;
+create user hulk identified by hulk default sybscbig quota 5m on sybscbig
+                                            *
+ERROR at line 1:
+ORA-00921: unexpected end of SQL command
+
+
+SQL> create user hulk identified by hulk default tablespace sybscbig quota 5m on sybscbig;
+
+User created.
+
+SQL> select tablespace_name,username, max_bytes/1024/1024 from dba_ts_quotas;
+
+TABLESPACE_NAME                USERNAME
+------------------------------ ------------------------------
+MAX_BYTES/1024/1024
+-------------------
+SYBSCBIG                       SYSTEM1
+                  5
+
+USERS                          HR
+         -9.537E-07
+
+SYBSCBIG                       HULK
+                  5
+
+
+SQL> select tablespace_name,username, max_bytes/1024/1024,bytes/1024/1024 from dba_ts_quotas;
+
+TABLESPACE_NAME                USERNAME
+------------------------------ ------------------------------
+MAX_BYTES/1024/1024 BYTES/1024/1024
+------------------- ---------------
+SYBSCBIG                       HULK
+                  5               0
+
+SYBSCBIG                       SYSTEM1
+                  5               0
+
+USERS                          HR
+         -9.537E-07          1.5625
+
+
+SQL>

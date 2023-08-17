@@ -1,0 +1,287 @@
+
+
+
+SQL> select * from product join emp on (product.id=emp.id);
+
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+         1 Satish     Kandhar  CS         Developer       60000       5000
+
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+
+         3 Vijay               431812 Kinwat          Best Frined
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+
+
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         4 Shraddha            421223 Pusad           Best Frined
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+         5 Rushi               431714 Fakirdarawadi   Brother
+         5 Yogesh     Loha     CS         Developer       60000       5000
+
+         6 Datta               431714 Fakirdarawadi   Brother
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+
+6 rows selected.
+
+SQL> select *from product join emp using(name);
+
+NAME               ID        PIN CITY            RELATION             PH_NO
+---------- ---------- ---------- --------------- --------------- ----------
+        ID CITY     FIELD      POST           SALARY         TA
+---------- -------- ---------- ---------- ---------- ----------
+Satish              1     431714 Fakirdarawadi   Self            8459896076
+         1 Kandhar  CS         Developer       60000       5000
+
+Vaibhav             2     431712 Basmath         Best Frined     9579200052
+         2 Basmath  CS         Developer       60000       5000
+
+Vijay               3     431812 Kinwat          Best Frined
+         4 Kinwat   Art        Collecter       65000       5000
+
+
+NAME               ID        PIN CITY            RELATION             PH_NO
+---------- ---------- ---------- --------------- --------------- ----------
+        ID CITY     FIELD      POST           SALARY         TA
+---------- -------- ---------- ---------- ---------- ----------
+Shraddha            4     421223 Pusad           Best Frined
+         3 Pusad    CS         Developer       60000       5000
+
+
+SQL> select *from product,emp where product.name=emp.name;
+
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+         1 Satish     Kandhar  CS         Developer       60000       5000
+
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+
+         3 Vijay               431812 Kinwat          Best Frined
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         4 Shraddha            421223 Pusad           Best Frined
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+
+
+SQL> select * from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+6 rows selected.
+
+SQL> SQL*Plus: Release 10.2.0.1.0 - Production on Sat May 7 10:49:55 2022
+SP2-0734: unknown command beginning "SQL*Plus: ..." - rest of line ignored.
+SQL>
+SQL> Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+SP2-0734: unknown command beginning "Copyright ..." - rest of line ignored.
+SQL>
+SQL> SQL> conn system\2002
+SP2-0734: unknown command beginning "SQL> conn ..." - rest of line ignored.
+SQL> Enter password:
+SP2-0734: unknown command beginning "Enter pass..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> ERROR:
+SP2-0042: unknown command "ERROR:" - rest of line ignored.
+SQL> ORA-01017: invalid username/password; logon denied
+SP2-0734: unknown command beginning "ORA-01017:..." - rest of line ignored.
+SQL>
+SQL>
+SQL> SQL>
+SP2-0042: unknown command "SQL>" - rest of line ignored.
+SQL> SQL>
+SP2-0042: unknown command "SQL>" - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> SQL> conn
+SP2-0042: unknown command "SQL> conn" - rest of line ignored.
+SQL> Enter user-name: system
+SP2-0734: unknown command beginning "Enter user..." - rest of line ignored.
+SQL> Enter password:
+SP2-0734: unknown command beginning "Enter pass..." - rest of line ignored.
+SQL> Connected.
+SP2-0042: unknown command "Connected." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> SQL> create table emp(id number(3),Name varchar(10),Surname varchar(10));
+SP2-0734: unknown command beginning "SQL> creat..." - rest of line ignored.
+SQL> create table emp(id number(3),Name varchar(10),Surname varchar(10))
+  2               *
+  3  ERROR at line 1:
+  4  ORA-00955: name is already used by an existing object
+  5
+SQL>
+SQL> SQL> select * from emp;
+SP2-0734: unknown command beginning "SQL> selec..." - rest of line ignored.
+SQL>
+SQL>         ID NAME       CITY     FIELD      POST           SALARY         TA
+SP2-0734: unknown command beginning "ID NAME   ..." - rest of line ignored.
+SQL> ---------- ---------- -------- ---------- ---------- ---------- ----------
+SQL>          1 Satish     Kandhar  CS         Developer       60000       5000
+SQL>          2 Vaibhav    Basmath  CS         Developer       60000       5000
+SQL>          3 Shraddha   Pusad    CS         Developer       60000       5000
+SQL>          4 Vijay      Kinwat   Art        Collecter       65000       5000
+SQL>          5 Yogesh     Loha     CS         Developer       60000       5000
+SQL>          6 Vishal     Nanded   CS         Developer       60000       5000
+SQL>
+SQL> 6 rows selected.
+SQL>
+SQL> SQL> select * from product joiin emp on (product.id=emp.id);
+SP2-0734: unknown command beginning "SQL> selec..." - rest of line ignored.
+SQL> select * from product joiin emp on (product.id=emp.id)
+  2                              *
+  3  ERROR at line 1:
+  4  ORA-00933: SQL command not properly ended
+  5
+SQL>
+SQL> SQL> select * from product join emp on (product.id=emp.id);
+SP2-0734: unknown command beginning "SQL> selec..." - rest of line ignored.
+SQL>
+SQL>         ID NAME                   PIN CITY            RELATION             PH_NO
+SP2-0734: unknown command beginning "ID NAME   ..." - rest of line ignored.
+SQL> ---------- --------------- ---------- --------------- --------------- ----------
+SQL>         ID NAME       CITY     FIELD      POST           SALARY         TA
+SP2-0734: unknown command beginning "ID NAME   ..." - rest of line ignored.
+SQL> ---------- ---------- -------- ---------- ---------- ---------- ----------
+SQL>          1 Satish              431714 Fakirdarawadi   Self            8459896076
+SQL>          1 Satish     Kandhar  CS         Developer       60000       5000
+SQL>
+SQL>          2 Vaibhav             431712 Basmath         Best Frined     9579200052
+SQL>          2 Vaibhav    Basmath  CS         Developer       60000       5000
+SQL>
+SQL>          3 Vijay               431812 Kinwat          Best Frined
+SQL>          3 Shraddha   Pusad    CS         Developer       60000       5000
+SQL>
+SQL>
+SQL>         ID NAME                   PIN CITY            RELATION             PH_NO
+SP2-0734: unknown command beginning "ID NAME   ..." - rest of line ignored.
+SQL> ---------- --------------- ---------- --------------- --------------- ----------
+SQL>         ID NAME       CITY     FIELD      POST           SALARY         TA
+SP2-0734: unknown command beginning "ID NAME   ..." - rest of line ignored.
+SQL> ---------- ---------- -------- ---------- ---------- ---------- ----------
+SQL>          4 Shraddha            421223 Pusad           Best Frined
+SQL>          4 Vijay      Kinwat   Art        Collecter       65000       5000
+SQL>
+SQL>          5 Rushi               431714 Fakirdarawadi   Brother
+SQL>          5 Yogesh     Loha     CS         Developer       60000       5000
+SQL>
+SQL>          6 Datta               431714 Fakirdarawadi   Brother
+SQL>          6 Vishal     Nanded   CS         Developer       60000       5000
+SQL>
+SQL>
+SQL> 6 rows selected.
+SQL>
+SQL> SQL> select *from product join emp using(name);
+SP2-0734: unknown command beginning "SQL> selec..." - rest of line ignored.
+SQL>
+SQL> NAME               ID        PIN CITY            RELATION             PH_NO
+SP2-0734: unknown command beginning "NAME      ..." - rest of line ignored.
+SQL> ---------- ---------- ---------- --------------- --------------- ----------
+SQL>         ID CITY     FIELD      POST           SALARY         TA
+SP2-0734: unknown command beginning "ID CITY   ..." - rest of line ignored.
+SQL> ---------- -------- ---------- ---------- ---------- ----------
+SQL> Satish              1     431714 Fakirdarawadi   Self            8459896076
+SP2-0734: unknown command beginning "Satish    ..." - rest of line ignored.
+SQL>          1 Kandhar  CS         Developer       60000       5000
+SQL>
+SQL> Vaibhav             2     431712 Basmath         Best Frined     9579200052
+SP2-0734: unknown command beginning "Vaibhav   ..." - rest of line ignored.
+SQL>          2 Basmath  CS         Developer       60000       5000
+SQL>
+SQL> Vijay               3     431812 Kinwat          Best Frined
+SP2-0734: unknown command beginning "Vijay     ..." - rest of line ignored.
+SQL>          4 Kinwat   Art        Collecter       65000       5000
+SQL>
+SQL>
+SQL> NAME               ID        PIN CITY            RELATION             PH_NO
+SP2-0734: unknown command beginning "NAME      ..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> ---------- ---------- ---------- --------------- --------------- ----------
+SQL>         ID CITY     FIELD      POST           SALARY         TA
+SP2-0734: unknown command beginning "ID CITY   ..." - rest of line ignored.
+SQL> ---------- -------- ---------- ---------- ---------- ----------
+SQL> Shraddha            4     421223 Pusad           Best Frined
+SP2-0734: unknown command beginning "Shraddha  ..." - rest of line ignored.
+SQL>          3 Pusad    CS         Developer       60000       5000
+SQL>
+SQL>
+SQL> SQL>select *from product,emp where product.id=emp.id;
+SP2-0734: unknown command beginning "SQL>select..." - rest of line ignored.
+SQL> SQL>select *from product,emp where product.id=emp.id;
+SP2-0734: unknown command beginning "SQL>select..." - rest of line ignored.
+SQL> SQL>select *from product , emp where product.name = emp.name;
+SP2-0734: unknown command beginning "SQL>select..." - rest of line ignored.
+SP2-0044: For a list of known commands enter HELP
+and to leave enter EXIT.
+SQL> desc emp
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(4)
+ NAME                                               VARCHAR2(10)
+ CITY                                               VARCHAR2(8)
+ FIELD                                              VARCHAR2(10)
+ POST                                               VARCHAR2(10)
+ SALARY                                             NUMBER(6)
+ TA                                                 NUMBER(5)
+
+SQL> desc product
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(3)
+ NAME                                               VARCHAR2(15)
+ PIN                                                NUMBER(6)
+ CITY                                               VARCHAR2(15)
+ RELATION                                           VARCHAR2(15)
+ PH_NO                                              NUMBER(10)
+
+SQL> select *from product,emp where (product.city=emp.city);
+
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+
+         3 Vijay               431812 Kinwat          Best Frined
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+         4 Shraddha            421223 Pusad           Best Frined
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+
+
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        11 Adya                431714 Loha            Friend          7499452134
+         5 Yogesh     Loha     CS         Developer       60000       5000
+
+
+SQL>

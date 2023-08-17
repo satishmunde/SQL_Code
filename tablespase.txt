@@ -1,0 +1,41 @@
+for create permanant tablespace
+
+SQL> create bigfile tablespace sybscbig  datafile'C:\oraclexe\oradata\XE\sybscbig.dbf'size 10m;
+
+Tablespace created.
+
+for create temporary tablespace
+
+SQL> create temporary tablespace sybsctemp  tempfile'C:\oraclexe\oradata\XE\sybsctemp.dbf'size 10m;
+
+Tablespace created.
+
+for create undo tablespace
+
+SQL> create tablespace sybscundo datafile 'C:\oraclexe\oradata\XE\sybsc.dbf' size 10m;
+
+Tablespace created.
+
+for display table space name and its types
+
+SQK> select tablespace_name,contents from dba_tablespaces;
+
+for viewing column Info
+
+select tablespace_name,username,max_bytes/1024/1024 as max_bytes from dba_ts_quotas;
+
+TABLESPACE_NAME                USERNAME                        MAX_BYTES
+------------------------------ ------------------------------ ----------
+SYBSCBIG                       SYSTEM1                                 5
+USERS                          HR                             -9.537E-07
+
+for deleting datafiles
+
+ drop tablespace tbs01 including contents  and datafiles;
+
+Tablespace dropped.
+
+to create the user and assign the quata of tablespace.
+
+create user hulk identified by hulk default tablespace sybscbig quota 5m on sybscbig;
+user created.

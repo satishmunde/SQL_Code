@@ -1,0 +1,134 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Wed May 4 13:48:34 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> DESC PRODUCT
+SP2-0640: Not connected
+SP2-0641: "DESCRIBE" requires connection to server
+SQL> CONN
+Enter user-name: SYSTEM
+Enter password:
+Connected.
+SQL> DESC PRODUCT
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(3)
+ NAME                                               VARCHAR2(15)
+ PIN                                                NUMBER(6)
+ CITY                                               VARCHAR2(15)
+ RELATION                                           VARCHAR2(15)
+ PH_NO                                              NUMBER(10)
+
+SQL> CREATE USER SYSTEM2 IDENTIFIED BY PWD;
+
+User created.
+
+SQL> GRANT SELECT ON PRODUCT TO SYSTEM2;
+
+Grant succeeded.
+
+SQL> GRANT UPDATE ON PRODUCT TO SYSTEM2;
+
+Grant succeeded.
+
+SQL> GRANT ACCESS ON PRODUCT TO SYSTEM2;
+GRANT ACCESS ON PRODUCT TO SYSTEM2
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+
+
+SQL> GRANT CONNECT ON PRODUCT TO SYSTEM2;
+GRANT CONNECT ON PRODUCT TO SYSTEM2
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+
+
+SQL> GRANT CONNECT TO SYSTEM2;
+
+Grant succeeded.
+
+SQL> GRANT ALL ON PRODUCT TO SYSTEM2;
+
+Grant succeeded.
+
+SQL> GRANT CREATE TO SYSTEM2
+  2  ;
+GRANT CREATE TO SYSTEM2
+      *
+ERROR at line 1:
+ORA-01919: role 'CREATE' does not exist
+
+
+SQL> GRANT CREATE ON PRODUCT TO SYSTEM2;
+GRANT CREATE ON PRODUCT TO SYSTEM2
+                *
+ERROR at line 1:
+ORA-02224: EXECUTE privilege not allowed for tables
+
+
+SQL> CREATE ROLL UPDATE,SELECT,CREATE TO SIS_ROLL;
+CREATE ROLL UPDATE,SELECT,CREATE TO SIS_ROLL
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command
+
+
+SQL> GRANT SELECT,DELETE,INSERT ON PRODUCT TO SYSTEM2;
+
+Grant succeeded.
+
+SQL> CREATE ROLE ROLE_SYS
+  2  GRANT UPDATE,DELETE,INSERT ON PRODUCT TO ROLL_SYS;
+GRANT UPDATE,DELETE,INSERT ON PRODUCT TO ROLL_SYS
+*
+ERROR at line 2:
+ORA-00922: missing or invalid option
+
+
+SQL> CREATE ROLE ROLE_SYS;
+
+Role created.
+
+SQL> GRANT UPDATE,DELETE,INSERT ON PRODUCT TO ROLE_SYS;
+
+Grant succeeded.
+
+SQL> GRANT ROLE_SYS ON PRODUCT TO SYSTEM2;
+GRANT ROLE_SYS ON PRODUCT TO SYSTEM2
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+
+
+SQL> ROLE_SYS ON PRODUCT TO SYSTEM2;
+SP2-0734: unknown command beginning "ROLE_SYS O..." - rest of line ignored.
+SQL> GRANT ROLE_SYS ON PRODUCT TO SYSTEM2;
+GRANT ROLE_SYS ON PRODUCT TO SYSTEM2
+      *
+ERROR at line 1:
+ORA-00990: missing or invalid privilege
+
+
+SQL> GRANT ROLE_SYS TO SYSTEM2;
+
+Grant succeeded.
+
+SQL> GRANT ROLE_SYS TO SATISH;
+
+Grant succeeded.
+
+SQL> DROP  USER SATISH;
+
+User dropped.
+
+SQL> GRANT ROLE_SYS TO SATISH;
+GRANT ROLE_SYS TO SATISH
+                  *
+ERROR at line 1:
+ORA-01917: user or role 'SATISH' does not exist
+
+
+SQL>

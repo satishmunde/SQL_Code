@@ -1,0 +1,11 @@
+to alter and create privilege
+
+syntax
+grant privilegename session to username;
+
+example 
+grant alter session,create session to sattu;
+
+to view the privileges
+ select username,privilege, admin_option from user_sys_privs;
+

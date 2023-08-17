@@ -1,0 +1,489 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Fri May 27 10:40:20 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> conn system/2002
+Connected.
+SQL> select tablespace_name,conents,max_bytes/1024/1024 as Allocated_Size from dba_ts_quotas;
+select tablespace_name,conents,max_bytes/1024/1024 as Allocated_Size from dba_ts_quotas
+                       *
+ERROR at line 1:
+ORA-00904: "CONENTS": invalid identifier
+
+
+SQL> select tablespace_name,conents,max_bytes/1024/1024 as Allocated_Size from dba_tablespace;
+select tablespace_name,conents,max_bytes/1024/1024 as Allocated_Size from dba_tablespace
+                                                                          *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select tablespace_name,conents,max_bytes/1024/1024 as Allocated_Size from dba_tablespaces;
+select tablespace_name,conents,max_bytes/1024/1024 as Allocated_Size from dba_tablespaces
+                               *
+ERROR at line 1:
+ORA-00904: "MAX_BYTES": invalid identifier
+
+
+SQL> select tablespace_name,conents from dba_tablespaces;
+select tablespace_name,conents from dba_tablespaces
+                       *
+ERROR at line 1:
+ORA-00904: "CONENTS": invalid identifier
+
+
+SQL> select tablespace_name,contents from dba_tablespaces;
+
+TABLESPACE_NAME                CONTENTS
+------------------------------ ---------
+SYSTEM                         PERMANENT
+UNDO                           UNDO
+SYSAUX                         PERMANENT
+TEMP                           TEMPORARY
+USERS                          PERMANENT
+SYBSCBIG                       PERMANENT
+SYBSCTEMP                      TEMPORARY
+SYBSCUNDO                      PERMANENT
+
+8 rows selected.
+
+SQL> create tablespace tbs01 datafile 'D://notes/tbs0101.dbf' size 10m;
+
+Tablespace created.
+
+SQL> create user satish01 identified by pwd default tbs01 quota 5m on tbs01;
+create user satish01 identified by pwd default tbs01 quota 5m on tbs01
+                                               *
+ERROR at line 1:
+ORA-00921: unexpected end of SQL command
+
+
+SQL> create user satish01 identified by pwd default tbs01 quota 5m on dba_ts_quotas;
+create user satish01 identified by pwd default tbs01 quota 5m on dba_ts_quotas
+                                               *
+ERROR at line 1:
+ORA-00921: unexpected end of SQL command
+
+
+SQL> create user satish01 identified by pwd default tablespace tbs01 quota 5m on dba_ts_quotas;
+create user satish01 identified by pwd default tablespace tbs01 quota 5m on dba_ts_quotas
+*
+ERROR at line 1:
+ORA-00959: tablespace 'DBA_TS_QUOTAS' does not exist
+
+
+SQL> create user satish01 identified by pwd default tablespace tbs01 quota 5m on tbs01;
+
+User created.
+
+SQL> grant create session,create table to satish01;
+
+Grant succeeded.
+
+SQL> select tablespace_name,contants,max_bytes/1024/1024 as max_byte,byte from dba_ts_quotas;
+select tablespace_name,contants,max_bytes/1024/1024 as max_byte,byte from dba_ts_quotas
+                                                                *
+ERROR at line 1:
+ORA-00904: "BYTE": invalid identifier
+
+
+SQL> select tablespace_name,contants,max_bytes/1024/1024 as max_byte from dba_ts_quotas;
+select tablespace_name,contants,max_bytes/1024/1024 as max_byte from dba_ts_quotas
+                       *
+ERROR at line 1:
+ORA-00904: "CONTANTS": invalid identifier
+
+
+SQL> select tablespace_name,username,max_bytes/1024/1024 as max_byte from dba_ts_quotas;
+
+TABLESPACE_NAME                USERNAME                         MAX_BYTE
+------------------------------ ------------------------------ ----------
+SYBSCBIG                       SYSTEM1                                 5
+USERS                          HR                             -9.537E-07
+TBS01                          SATISH01                                5
+
+SQL> conn satish01/pwd
+Connected.
+SQL> create table emp(Id int(3),Name varchar(8));
+create table emp(Id int(3),Name varchar(8))
+                       *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> create table emp(Id number(3),Name varchar(8));
+
+Table created.
+
+SQL> insert into emp values(1,'Satish');
+
+1 row created.
+
+SQL> insert into emp values(2,'Munde');
+
+1 row created.
+
+SQL> select *from emp;
+
+        ID NAME
+---------- --------
+         1 Satish
+         2 Munde
+
+SQL> insert into emp select *from emp;
+
+2 rows created.
+
+SQL> insert into emp select *from emp;
+
+4 rows created.
+
+SQL>
+SQL> insert into emp select *from emp;
+
+8 rows created.
+
+SQL>
+SQL> insert into emp select *from emp;
+
+16 rows created.
+
+SQL>
+SQL> insert into emp select *from emp;
+
+32 rows created.
+
+SQL> insert into emp select *from emp;
+
+64 rows created.
+
+SQL> insert into emp select *from emp;
+
+128 rows created.
+
+SQL> insert into emp select *from emp;
+
+256 rows created.
+
+SQL> insert into emp select *from emp;
+
+512 rows created.
+
+SQL> insert into emp select *from emp;
+
+1024 rows created.
+
+SQL> insert into emp select *from emp;
+
+2048 rows created.
+
+SQL> insert into emp select *from emp;
+
+4096 rows created.
+
+SQL> insert into emp select *from emp;
+
+8192 rows created.
+
+SQL> insert into emp select *from emp;
+
+16384 rows created.
+
+SQL> insert into emp select *from emp;
+
+32768 rows created.
+
+SQL> insert into emp select *from emp;
+
+65536 rows created.
+
+SQL> insert into emp select *from emp;
+
+131072 rows created.
+
+SQL> insert into emp select *from emp;
+insert into emp select *from emp
+*
+ERROR at line 1:
+ORA-01536: space quota exceeded for tablespace 'TBS01'
+
+
+SQL> insert into emp select *from emp;
+insert into emp select *from emp
+*
+ERROR at line 1:
+ORA-01536: space quota exceeded for tablespace 'TBS01'
+
+
+SQL> insert into emp select *from emp;
+insert into emp select *from emp
+*
+ERROR at line 1:
+ORA-01536: space quota exceeded for tablespace 'TBS01'
+
+
+SQL> insert into emp select *from emp;
+insert into emp select *from emp
+*
+ERROR at line 1:
+ORA-01536: space quota exceeded for tablespace 'TBS01'
+
+
+SQL> alter user satish01 quota 10m;
+alter user satish01 quota 10m
+                            *
+ERROR at line 1:
+ORA-00969: missing ON keyword
+
+
+SQL> alter user satish01 quota 10m on tbs01;
+alter user satish01 quota 10m on tbs01
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> conn system/2002
+Connected.
+SQL> alter user satish01 quota 10m on tbs01;
+
+User altered.
+
+SQL> conn satish01/2002
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> conn satish1/2002
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+SQL> conn satish1/pwd
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+SQL> conn satish01/pwd
+Connected.
+SQL> insert into emp select *from emp;
+
+262144 rows created.
+
+SQL> alter user satish01 quota 10m;
+alter user satish01 quota 10m
+                            *
+ERROR at line 1:
+ORA-00969: missing ON keyword
+
+
+SQL> insert into emp select *from emp;
+insert into emp select *from emp
+*
+ERROR at line 1:
+ORA-01653: unable to extend table SATISH01.EMP by 128 in tablespace TBS01
+
+
+SQL> insert into emp select *from emp;
+insert into emp select *from emp
+*
+ERROR at line 1:
+ORA-01653: unable to extend table SATISH01.EMP by 128 in tablespace TBS01
+
+
+SQL> select tablespace_name,username,max_bytes/1024/1024 as data bytes/1024/1024 as used_data from dba_ts_quotas where username='satish01';
+select tablespace_name,username,max_bytes/1024/1024 as data bytes/1024/1024 as used_data from dba_ts_quotas where username='satish01'
+                                                            *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select tablespace_name,username,max_bytes/1024/1024 as data,bytes/1024/1024 as used_data from dba_ts_quotas where username='satish01';
+select tablespace_name,username,max_bytes/1024/1024 as data,bytes/1024/1024 as used_data from dba_ts_quotas where username='satish01'
+                                                                                              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select tablespace_name,username,max_bytes/1024/1024 as data,bytes/1024/1024 as used_data from dba_ts_quotas;
+select tablespace_name,username,max_bytes/1024/1024 as data,bytes/1024/1024 as used_data from dba_ts_quotas
+                                                                                              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select tablespace_name,username,max_bytes/1024/1024 as max_bytes from dba_ts_quotas;
+select tablespace_name,username,max_bytes/1024/1024 as max_bytes from dba_ts_quotas
+                                                                      *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> conn system/2002
+Connected.
+SQL> select tablespace_name,username,max_bytes/1024/1024 as data,bytes/1024/1024 as used_data from dba_ts_quotas where username='satish01';
+
+no rows selected
+
+SQL> select tablespace_name,username,max_bytes/1024/1024 as max_bytes from dba_ts_quotas;
+
+TABLESPACE_NAME                USERNAME                        MAX_BYTES
+------------------------------ ------------------------------ ----------
+SYBSCBIG                       SYSTEM1                                 5
+USERS                          HR                             -9.537E-07
+TBS01                          SATISH01                               10
+
+SQL> select tablespace_name,username,max_bytes/1024/1024 as data,bytes/1024/1024 as used_data from dba_ts_quotas;
+
+TABLESPACE_NAME                USERNAME                             DATA
+------------------------------ ------------------------------ ----------
+ USED_DATA
+----------
+SYBSCBIG                       SYSTEM1                                 5
+         0
+
+USERS                          HR                             -9.537E-07
+    1.5625
+
+TBS01                          SATISH01                               10
+         9
+
+
+SQL> alter tablespace tbs01 add datafile 'd://notes/tbs0103.dbf' size 50m;
+
+Tablespace altered.
+
+SQL> insert into emp select *from emp;
+
+6 rows created.
+
+SQL> select *from emp fetch first 3 only;
+select *from emp fetch first 3 only
+                       *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> conn satish01/pwd
+Connected.
+SQL> select *from emp fetch first 3 only;
+select *from emp fetch first 3 only
+                       *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> insert into emp select *from emp;
+insert into emp select *from emp
+*
+ERROR at line 1:
+ORA-01536: space quota exceeded for tablespace 'TBS01'
+
+
+SQL> insert into emp values(3,'Vijay');
+
+1 row created.
+
+SQL> insert into emp select *from emp;
+insert into emp select *from emp
+*
+ERROR at line 1:
+ORA-01536: space quota exceeded for tablespace 'TBS01'
+
+
+SQL> conn
+Enter user-name: system/2002
+Connected.
+SQL> alter drop datafile tbs0103;
+alter drop datafile tbs0103
+      *
+ERROR at line 1:
+ORA-00940: invalid ALTER command
+
+
+SQL> drop datafile tbs0103;
+drop datafile tbs0103
+     *
+ERROR at line 1:
+ORA-00950: invalid DROP option
+
+
+SQL> alter tablespace satish01 drop datafile tbs0103;
+alter tablespace satish01 drop datafile tbs0103
+*
+ERROR at line 1:
+ORA-02236: invalid file name
+
+
+SQL> alter tablespace satish01 drop datafile 3;
+alter tablespace satish01 drop datafile 3
+*
+ERROR at line 1:
+ORA-00959: tablespace 'SATISH01' does not exist
+
+
+SQL> alter tablespace tbs01 drop datafile tbs0103;
+alter tablespace tbs01 drop datafile tbs0103
+*
+ERROR at line 1:
+ORA-02236: invalid file name
+
+
+SQL> alter tablespace tbs01 drop datafile 3;
+alter tablespace tbs01 drop datafile 3
+*
+ERROR at line 1:
+ORA-00600: internal error code, arguments: [the file does not belong to the ],
+[], [], [], [], [], [], []
+
+
+SQL> alter tablespace tbs01 drop datafile 3;
+alter tablespace tbs01 drop datafile 3
+*
+ERROR at line 1:
+ORA-00600: internal error code, arguments: [the file does not belong to the ],
+[], [], [], [], [], [], []
+
+
+SQL> conn satish01/pwd
+Connected.
+SQL> alter tablespace tbs01 drop datafile 3;
+alter tablespace tbs01 drop datafile 3
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> disc
+Disconnected from Oracle Database 10g Express Edition Release 10.2.0.1.0 - Production
+SQL> conn system/2002
+Connected.
+SQL> conn satish01/pwd
+Connected.
+SQL> disc
+Disconnected from Oracle Database 10g Express Edition Release 10.2.0.1.0 - Production
+SQL> conn
+Enter user-name: system/2002
+Connected.
+SQL> drop tablespace tbs01 including contents  and datafile;
+drop tablespace tbs01 including contents  and datafile
+                                              *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> drop tablespace tbs01 including contents  and datafiles;
+
+Tablespace dropped.
+
+SQL> revoke create session,create table from satish01;
+
+Revoke succeeded.
+
+SQL> drop user satish01;
+
+User dropped.
+
+SQL>

@@ -1,0 +1,529 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Mon May 9 13:28:29 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> conn
+Enter user-name: system/2002
+Connected.
+SQL> select *from emp,product;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         3 Vijay               431812 Kinwat          Best Frined
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         4 Shraddha            421223 Pusad           Best Frined
+
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         5 Rushi               431714 Fakirdarawadi   Brother
+
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         6 Datta               431714 Fakirdarawadi   Brother
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         7 Vaishnavi           431712 Hadgaon         Friend
+
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         8 Balaji              431714 Fakirdarawadi   Father
+
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         9 Ujwala              431714 Fakirdarawadi   Mother
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+        10 Mahesh              431714 Fakirdarawadi   Brother
+
+         1 Satish     Kandhar  CS         Developer       60000       5000
+        11 Adya                431714 Loha            Friend          7499452134
+
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Vijay               431812 Kinwat          Best Frined
+
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         4 Shraddha            421223 Pusad           Best Frined
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         5 Rushi               431714 Fakirdarawadi   Brother
+
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         6 Datta               431714 Fakirdarawadi   Brother
+
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         7 Vaishnavi           431712 Hadgaon         Friend
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         8 Balaji              431714 Fakirdarawadi   Father
+
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         9 Ujwala              431714 Fakirdarawadi   Mother
+
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+        10 Mahesh              431714 Fakirdarawadi   Brother
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+        11 Adya                431714 Loha            Friend          7499452134
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         3 Vijay               431812 Kinwat          Best Frined
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Shraddha            421223 Pusad           Best Frined
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         5 Rushi               431714 Fakirdarawadi   Brother
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         6 Datta               431714 Fakirdarawadi   Brother
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         7 Vaishnavi           431712 Hadgaon         Friend
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         8 Balaji              431714 Fakirdarawadi   Father
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         9 Ujwala              431714 Fakirdarawadi   Mother
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+        10 Mahesh              431714 Fakirdarawadi   Brother
+
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+        11 Adya                431714 Loha            Friend          7499452134
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         3 Vijay               431812 Kinwat          Best Frined
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         4 Shraddha            421223 Pusad           Best Frined
+
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         5 Rushi               431714 Fakirdarawadi   Brother
+
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         6 Datta               431714 Fakirdarawadi   Brother
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         7 Vaishnavi           431712 Hadgaon         Friend
+
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         8 Balaji              431714 Fakirdarawadi   Father
+
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         9 Ujwala              431714 Fakirdarawadi   Mother
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+        10 Mahesh              431714 Fakirdarawadi   Brother
+
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+        11 Adya                431714 Loha            Friend          7499452134
+
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         3 Vijay               431812 Kinwat          Best Frined
+
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         4 Shraddha            421223 Pusad           Best Frined
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         5 Rushi               431714 Fakirdarawadi   Brother
+
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Datta               431714 Fakirdarawadi   Brother
+
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         7 Vaishnavi           431712 Hadgaon         Friend
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         8 Balaji              431714 Fakirdarawadi   Father
+
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         9 Ujwala              431714 Fakirdarawadi   Mother
+
+         5 Yogesh     Loha     CS         Developer       60000       5000
+        10 Mahesh              431714 Fakirdarawadi   Brother
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         5 Yogesh     Loha     CS         Developer       60000       5000
+        11 Adya                431714 Loha            Friend          7499452134
+
+         6 Vishal     Nanded   CS         Developer       60000       5000
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+
+         6 Vishal     Nanded   CS         Developer       60000       5000
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         6 Vishal     Nanded   CS         Developer       60000       5000
+         3 Vijay               431812 Kinwat          Best Frined
+
+         6 Vishal     Nanded   CS         Developer       60000       5000
+         4 Shraddha            421223 Pusad           Best Frined
+
+         6 Vishal     Nanded   CS         Developer       60000       5000
+         5 Rushi               431714 Fakirdarawadi   Brother
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         6 Vishal     Nanded   CS         Developer       60000       5000
+         6 Datta               431714 Fakirdarawadi   Brother
+
+         6 Vishal     Nanded   CS         Developer       60000       5000
+         7 Vaishnavi           431712 Hadgaon         Friend
+
+         6 Vishal     Nanded   CS         Developer       60000       5000
+         8 Balaji              431714 Fakirdarawadi   Father
+
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         6 Vishal     Nanded   CS         Developer       60000       5000
+         9 Ujwala              431714 Fakirdarawadi   Mother
+
+         6 Vishal     Nanded   CS         Developer       60000       5000
+        10 Mahesh              431714 Fakirdarawadi   Brother
+
+         6 Vishal     Nanded   CS         Developer       60000       5000
+        11 Adya                431714 Loha            Friend          7499452134
+
+
+66 rows selected.
+
+SQL> select *from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+6 rows selected.
+
+SQL> select *from product;
+
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+         3 Vijay               431812 Kinwat          Best Frined
+         4 Shraddha            421223 Pusad           Best Frined
+         5 Rushi               431714 Fakirdarawadi   Brother
+         6 Datta               431714 Fakirdarawadi   Brother
+         7 Vaishnavi           431712 Hadgaon         Friend
+         8 Balaji              431714 Fakirdarawadi   Father
+         9 Ujwala              431714 Fakirdarawadi   Mother
+        10 Mahesh              431714 Fakirdarawadi   Brother
+        11 Adya                431714 Loha            Friend          7499452134
+
+11 rows selected.
+
+SQL> update emp
+  2  set salary=20-3*5
+  3  where id=1;
+
+1 row updated.
+
+SQL> select *from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer           5       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+6 rows selected.
+
+SQL> update emp
+  2  set salary=600*100
+  3  where id=1;
+
+1 row updated.
+
+SQL> select *from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+6 rows selected.
+
+SQL> select (2**3) from dual;
+select (2**3) from dual
+          *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> select power(2,3) from dual;
+
+POWER(2,3)
+----------
+         8
+
+SQL> update emp
+  2  set salary= salary+ta
+  3  where id=1;
+
+1 row updated.
+
+SQL> select *from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer       65000       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+6 rows selected.
+
+SQL> update emp
+  2  set salary=salary-ta
+  3  where id=1;
+
+1 row updated.
+
+SQL> select *from where salary=60000;
+select *from where salary=60000
+             *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> select *from emp where salary=60000;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+SQL> select *from emp where salary!=60000;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+SQL> select *from emp where salary>60000;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+SQL> select *from emp where salary>=65000;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+SQL> select *from emp where salary<60000;
+
+no rows selected
+
+SQL> select *from emp where salary<50000;
+
+no rows selected
+
+SQL> select *from emp where salary<90000;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+6 rows selected.
+
+SQL> select *from emp where salary<=65000;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+6 rows selected.
+
+SQL> select id,name form emp where salary>
+  2  (select salary form emp where field='cs');
+select id,name form emp where salary>
+                    *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select id,name form emp where
+  2  (select salary form emp where field='cs');
+select id,name form emp where
+                    *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select id,name form emp where
+  2  salary>(select salary form emp where field='cs');
+select id,name form emp where
+                    *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select id,name from emp where
+  2  salary>(select salary form emp where field='cs');
+salary>(select salary form emp where field='cs')
+                           *
+ERROR at line 2:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL>

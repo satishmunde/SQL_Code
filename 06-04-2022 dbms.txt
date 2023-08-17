@@ -1,0 +1,48 @@
+SQL> create table Product
+  2  (Id number(3),
+  3  item varchar(30),
+  4  price number(5));
+
+Table created.
+
+SQL> desc product
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ID                                                 NUMBER(3)
+ ITEM                                               VARCHAR2(30)
+ PRICE                                              NUMBER(5)
+
+SQL> insert into product
+  2  values(01,'Ram',2000);
+
+1 row created.
+
+SQL> insert into product
+  2  values(02,'Rom',3000);
+
+1 row created.
+
+SQL> insert into product
+  2  values(03,'keyboard',3000);
+
+1 row created.
+
+SQL> insert into product
+  2  values(04,'mouse',3000);
+
+1 row created.
+
+SQL> insert into product
+  2  values(05,'Pendrive',1000);
+
+1 row created.
+
+SQL> select *from product;
+
+        ID ITEM                                PRICE
+---------- ------------------------------ ----------
+         1 Ram                                  2000
+         2 Rom                                  3000
+         3 keyboard                             3000
+         4 mouse                                3000
+         5 Pendrive                             1000

@@ -1,0 +1,1003 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Wed May 25 13:19:41 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> conn
+Enter user-name: system/2002
+Connected.
+SQL> set serveroutput on;
+SQL> begin
+  2  dbms_output.put_line('hello satish');
+  3  end;
+  4  /
+hello satish
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  a number:= &a;
+  3  b number:= &b;
+  4  c number;
+  5  begin
+  6  c=a+b;
+  7  dbms_output.put_line('The addition of number is '|| c);
+  8  end;
+  9  /
+Enter value for a: 20
+old   2: a number:= &a;
+new   2: a number:= 20;
+Enter value for b: 30
+old   3: b number:= &b;
+new   3: b number:= 30;
+c=a+b;
+ *
+ERROR at line 6:
+ORA-06550: line 6, column 2:
+PLS-00103: Encountered the symbol "=" when expecting one of the following:
+:= . ( @ % ;
+
+
+SQL> declare
+  2  a number:= &a;
+  3  b number:= &b;
+  4  c number;
+  5  begin
+  6  c:=a+b;
+  7  dbms_output.put_line('The addition of number is '|| c);
+  8  end;
+  9  /
+Enter value for a: 10
+old   2: a number:= &a;
+new   2: a number:= 10;
+Enter value for b: 20
+old   3: b number:= &b;
+new   3: b number:= 20;
+The addition of number is 30
+
+PL/SQL procedure successfully completed.
+
+SQL>
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in1..10 loop;
+  5  dbms_output.put_line('Value of loop is'||a);
+  6  end loop;
+  7  end;
+  8  /
+for a in1..10 loop;
+      *
+ERROR at line 4:
+ORA-06550: line 4, column 7:
+PLS-00103: Encountered the symbol "IN1" when expecting one of the following:
+in
+The symbol "in" was substituted for "IN1" to continue.
+ORA-06550: line 4, column 19:
+PLS-00103: Encountered the symbol ";" when expecting one of the following:
+begin case declare exit for goto if loop mod null pragma
+raise return select update while with <an identifier>
+<a double-quoted delimited-identifier> <a
+
+
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in1..10 loop
+  5  dbms_output.put_line('Value of loop is'||a);
+  6  end loop;
+  7  end;
+  8  /
+for a in1..10 loop
+      *
+ERROR at line 4:
+ORA-06550: line 4, column 7:
+PLS-00103: Encountered the symbol "IN1" when expecting one of the following:
+in
+The symbol "in" was substituted for "IN1" to continue.
+
+
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in 1..10 loop;
+  5  dbms_output.put_line('Value of loop is'||a);
+  6  end loop;
+  7  end;
+  8  /
+for a in 1..10 loop;
+                   *
+ERROR at line 4:
+ORA-06550: line 4, column 20:
+PLS-00103: Encountered the symbol ";" when expecting one of the following:
+begin case declare exit for goto if loop mod null pragma
+raise return select update while with <an identifier>
+<a double-quoted delimited-identifier> <a bind variable> <<
+close current delete fetch lock insert open rollback
+savepoint set sql execute commit forall merge pipe
+The symbol "exit" was substituted for ";" to continue.
+
+
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in1..10 loop
+  5
+  6
+  7
+  8
+  9  end;
+ 10  /
+for a in1..10 loop
+      *
+ERROR at line 4:
+ORA-06550: line 4, column 7:
+PLS-00103: Encountered the symbol "IN1" when expecting one of the following:
+in
+The symbol "in" was substituted for "IN1" to continue.
+ORA-06550: line 9, column 1:
+PLS-00103: Encountered the symbol "END" when expecting one of the following:
+begin case declare exit for goto if loop mod null pragma
+raise return select update while with <an identifier>
+<a double-quoted delimited-identifier> <a
+
+
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in 1..10 loop
+  5  dbms_output.put_line('Value of loop is'||a);
+  6  end loop;
+  7  end;
+  8  /
+Value of loop is1
+Value of loop is2
+Value of loop is3
+Value of loop is4
+Value of loop is5
+Value of loop is6
+Value of loop is7
+Value of loop is8
+Value of loop is9
+Value of loop is10
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in reverce 10..1 loop
+  5  dbms_output.put_line('Value of a is '||a);
+  6  end loop;
+  7  end;
+  8  /
+for a in reverce 10..1 loop
+                 *
+ERROR at line 4:
+ORA-06550: line 4, column 18:
+PLS-00103: Encountered the symbol "10" when expecting one of the following:
+. ( * @ % & - + / at loop mod remainder range rem ..
+<an exponent (**)> || multiset
+The symbol "*" was substituted for "10" to continue.
+
+
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in reverse 10..1 loop
+  5  dbms_output.put_line('Value of a is '||a);
+  6  end loop;
+  7  end;
+  8  /
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in reverse 10..1 loop
+  5  dbms_output.put_line('Value of a is '||a);
+  6  end loop;
+  7  end;
+  8  /
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in reverse 10..1 loop
+  5  dbms_output.put_line('Value of a is '||a);
+  6  end loop;
+  7  end;
+  8  /
+
+PL/SQL procedure successfully completed.
+
+SQL> set serveroutput on;
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in reverse 10..1 loop
+  5  dbms_output.put_line('Value of a is '||a);
+  6  end loop;
+  7  end;
+  8  /
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  a number;
+  3  begin
+  4  for a in reverse 1..10 loop
+  5  dbms_output.put_line('Value of a is '||a);
+  6  end loop;
+  7  end;
+  8  /
+Value of a is 10
+Value of a is 9
+Value of a is 8
+Value of a is 7
+Value of a is 6
+Value of a is 5
+Value of a is 4
+Value of a is 3
+Value of a is 2
+Value of a is 1
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  a number;
+  3  begin
+  4  while a<20 loop
+  5  a:=a+1;
+  6  dbms_output.put_line(' Value is '||a);
+  7  end loop;
+  8  end;
+  9  /
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  begin
+  3  endl
+  4  /
+endl
+   *
+ERROR at line 3:
+ORA-06550: line 3, column 4:
+PLS-00103: Encountered the symbol "end-of-file" when expecting one of the
+following:
+:= . ( @ % ;
+
+
+SQL> begin
+  2  while a<20 loop
+  3  end;
+  4  /
+end;
+*
+ERROR at line 3:
+ORA-06550: line 3, column 1:
+PLS-00103: Encountered the symbol "END" when expecting one of the following:
+begin case declare exit for goto if loop mod null pragma
+raise return select update while with <an identifier>
+<a double-quoted delimited-identifier> <a bind variable> <<
+close current delete fetch lock insert open rollback
+savepoint set sql execute commit forall merge pipe
+
+
+SQL> declare
+  2  a number;
+  3  begin
+  4  while a<20 loop
+  5  dbms_output.put_line(' Value is '||a);
+  6  a:=a+1;
+  7  end loop;
+  8  end;
+  9  /
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  a number:=1;
+  3  begin
+  4  while a<20 loop
+  5  dbms_output.put_line(' Value is '||a);
+  6  a:=a+1;
+  7  end loop;
+  8  end;
+  9  /
+Value is 1
+Value is 2
+Value is 3
+Value is 4
+Value is 5
+Value is 6
+Value is 7
+Value is 8
+Value is 9
+Value is 10
+Value is 11
+Value is 12
+Value is 13
+Value is 14
+Value is 15
+Value is 16
+Value is 17
+Value is 18
+Value is 19
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  a number:=20;
+  3  begin
+  4  while a>1 loop
+  5  dbms_output.put_line(' Value is '||a);
+  6  a:=a-1;
+  7  end loop;
+  8  end;
+  9  /
+Value is 20
+Value is 19
+Value is 18
+Value is 17
+Value is 16
+Value is 15
+Value is 14
+Value is 13
+Value is 12
+Value is 11
+Value is 10
+Value is 9
+Value is 8
+Value is 7
+Value is 6
+Value is 5
+Value is 4
+Value is 3
+Value is 2
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  a number:=&a;
+  3  begin
+  4  if(a>=18)then
+  5  dbms_output.Put_line('Eligible for Voting');
+  6  else
+  7  dbms_output.Put_line('Not Eligible for Voting');
+  8  end id;
+  9  end;
+ 10  /
+Enter value for a: 21
+old   2: a number:=&a;
+new   2: a number:=21;
+end id;
+    *
+ERROR at line 8:
+ORA-06550: line 8, column 5:
+PLS-00103: Encountered the symbol "ID" when expecting one of the following:
+if
+
+
+SQL> declare
+  2  a number:=&a;
+  3  begin
+  4  if(a>=18)then
+  5  dbms_output.Put_line('Eligible for Voting');
+  6  else
+  7  dbms_output.Put_line('Not Eligible for Voting');
+  8  end if;
+  9  end;
+ 10  /
+Enter value for a: 21
+old   2: a number:=&a;
+new   2: a number:=21;
+Eligible for Voting
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  a number:=&a;
+  3  begin
+  4  if(a>0)then
+  5  dbms_output.put_line(' It is Possitive Number');
+  6  else
+  7  dbms_output.put_line(' It is Negative Number');
+  8  end if;
+  9  end;
+ 10  /
+Enter value for a: -21
+old   2: a number:=&a;
+new   2: a number:=-21;
+It is Negative Number
+
+PL/SQL procedure successfully completed.
+
+SQL> accept a prompt 'Enter Your Name';
+Enter Your Name Satish
+SQL> declare
+  2  a char(10):=&char;
+  3  end;
+  4  /
+Enter value for char: /d\\
+old   2: a char(10):=&char;
+new   2: a char(10):=/d\\;
+a char(10):=/d\\;
+            *
+ERROR at line 2:
+ORA-06550: line 2, column 13:
+PLS-00103: Encountered the symbol "/" when expecting one of the following:
+( - + case mod new not null <an identifier>
+<a double-quoted delimited-identifier> <a bind variable> avg
+count current exists max min prior sql stddev sum variance
+execute forall merge time timestamp interval date
+<a string literal with character set specification>
+<a number> <a single-quoted SQL string> pipe
+<an alternatively-quoted string literal with character set specification>
+<an alternatively-quoted S
+
+
+SQL> declare
+  2  ch varchar:=&ch;
+  3  begin\
+  4  end;
+  5  /
+Enter value for ch: satiush
+old   2: ch varchar:=&ch;
+new   2: ch varchar:=satiush;
+begin\
+     *
+ERROR at line 3:
+ORA-06550: line 3, column 6:
+PLS-00103: Encountered the symbol "\" when expecting one of the following:
+begin case declare exit for goto if loop mod null pragma
+raise return select update while with <an identifier>
+<a double-quoted delimited-identifier> <a bind variable> <<
+close current delete fetch lock insert open rollback
+savepoint set sql execute commit forall merge pipe
+
+
+SQL> declare
+  2  ch varchar:=&ch;
+  3  begin
+  4  if(ch='A' and ch='Z')then
+  5  dbms_output.put_line('This is Capital letter');
+  6  else
+  7  dbms_output.put_line('This is Small letter');
+  8  end if;
+  9  end;
+ 10  /
+Enter value for ch: A
+old   2: ch varchar:=&ch;
+new   2: ch varchar:=A;
+ch varchar:=A;
+   *
+ERROR at line 2:
+ORA-06550: line 2, column 4:
+PLS-00215: String length constraints must be in range (1 .. 32767)
+ORA-06550: line 2, column 13:
+PLS-00201: identifier 'A' must be declared
+ORA-06550: line 2, column 4:
+PL/SQL: Item ignored
+ORA-06550: line 4, column 4:
+PLS-00320: the declaration of the type of this expression is incomplete or
+malformed
+ORA-06550: line 4, column 1:
+PL/SQL: Statement ignored
+
+
+SQL> declare
+  2  ch varchar9:=&ch;
+  3  end;
+  4  /
+Enter value for ch: declare
+old   2: ch varchar9:=&ch;
+new   2: ch varchar9:=declare;
+ch varchar9:=declare;
+             *
+ERROR at line 2:
+ORA-06550: line 2, column 14:
+PLS-00103: Encountered the symbol "DECLARE" when expecting one of the
+following:
+( - + case mod new not null <an identifier>
+<a double-quoted delimited-identifier> <a bind variable> avg
+count current exists max min prior sql stddev sum variance
+execute forall merge time timestamp interval date
+<a string literal with character set specification>
+<a number> <a single-quoted SQL string> pipe
+<an alternatively-quoted string literal with character set specification>
+<an alternatively-qu
+
+
+SQL> declare
+  2  ch varchar(5):=&ch;
+  3  begin
+  4  if(ch='A' and ch='Z')then
+  5  dbms_output.put_line('This is Capital letter');
+  6  else
+  7  dbms_output.put_line('This is Small letter');
+  8  end if;
+  9  end;
+ 10  /
+Enter value for ch: S
+old   2: ch varchar(5):=&ch;
+new   2: ch varchar(5):=S;
+ch varchar(5):=S;
+               *
+ERROR at line 2:
+ORA-06550: line 2, column 16:
+PLS-00201: identifier 'S' must be declared
+ORA-06550: line 2, column 4:
+PL/SQL: Item ignored
+ORA-06550: line 4, column 4:
+PLS-00320: the declaration of the type of this expression is incomplete or
+malformed
+ORA-06550: line 4, column 1:
+PL/SQL: Statement ignored
+
+
+SQL> declare
+  2  a varchar(5):=&a;
+  3  begin
+  4  if(a='A')
+  5  then
+  6  dbms_output.put_line(' THis is upper case');
+  7  else
+  8  dbms_output.put_line(' THis is lower case');
+  9  end if;
+ 10  end;
+ 11  /
+old   2: a varchar(5):=&a;
+new   2: a varchar(5):= Satish;
+a varchar(5):= Satish;
+               *
+ERROR at line 2:
+ORA-06550: line 2, column 16:
+PLS-00201: identifier 'SATISH' must be declared
+ORA-06550: line 2, column 3:
+PL/SQL: Item ignored
+ORA-06550: line 4, column 4:
+PLS-00320: the declaration of the type of this expression is incomplete or
+malformed
+ORA-06550: line 4, column 1:
+PL/SQL: Statement ignored
+
+
+SQL> declare
+  2    2  a varchar(5):=&a;
+  3    3  begin
+  4    4  if(a='A')
+  5    5  then
+  6    6  dbms_output.put_line(' THis is upper case');
+  7    7  else
+  8    8  dbms_output.put_line(' THis is lower case');
+  9    9  end if;
+ 10   10  end;
+ 11   11  /
+ 12  end;
+ 13  /
+old   2:   2  a varchar(5):=&a;
+new   2:   2  a varchar(5):= Satish;
+  2  a varchar(5):= Satish;
+  *
+ERROR at line 2:
+ORA-06550: line 2, column 3:
+PLS-00103: Encountered the symbol "2" when expecting one of the following:
+begin function package pragma procedure subtype type use
+<an identifier> <a double-quoted delimited-identifier> form
+current cursor
+
+
+SQL> declare
+  2      a varchar(5):=&a;
+  3      begin
+  4      if(a=='A' and a=='Z')
+  5      then
+  6      dbms_output.put_line(' THis is upper case');
+  7      else
+  8      dbms_output.put_line(' THis is lower case');
+  9      end if;
+ 10     end;
+ 11     /
+old   2:     a varchar(5):=&a;
+new   2:     a varchar(5):= Satish;
+    if(a=='A' and a=='Z')
+         *
+ERROR at line 4:
+ORA-06550: line 4, column 10:
+PLS-00103: Encountered the symbol "=" when expecting one of the following:
+( - + all case mod new null <an identifier>
+<a double-quoted delimited-identifier> <a bind variable> any
+avg count current max min prior some sql stddev sum variance
+execute forall merge time timestamp interval date
+<a string literal with character set specification>
+<a number> <a single-quoted SQL string> pipe
+<an alternatively-quoted string literal with character set specification>
+<an alternatively-quoted
+
+
+SQL> declare
+  2      a varchar(5):='S';
+  3      begin
+  4      if(a=='A' and a=='Z')
+  5      then
+  6      dbms_output.put_line(' THis is upper case');
+  7      else
+  8      dbms_output.put_line(' THis is lower case');
+  9      end if;
+ 10     end;
+ 11     /
+    if(a=='A' and a=='Z')
+         *
+ERROR at line 4:
+ORA-06550: line 4, column 10:
+PLS-00103: Encountered the symbol "=" when expecting one of the following:
+( - + all case mod new null <an identifier>
+<a double-quoted delimited-identifier> <a bind variable> any
+avg count current max min prior some sql stddev sum variance
+execute forall merge time timestamp interval date
+<a string literal with character set specification>
+<a number> <a single-quoted SQL string> pipe
+<an alternatively-quoted string literal with character set specification>
+<an alternatively-quoted
+
+
+SQL> declare
+  2      a varchar(5):='S';
+  3      begin
+  4      if(a='A' and a='Z')then
+  5      dbms_output.put_line(' THis is upper case');
+  6      else
+  7      dbms_output.put_line(' THis is lower case');
+  8      end if;
+  9     end;
+ 10     /
+THis is lower case
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2      a varchar(5):='&a';
+  3      begin
+  4      if(a='A' and a='Z')then
+  5      dbms_output.put_line(' THis is upper case');
+  6      else
+  7      dbms_output.put_line(' THis is lower case');
+  8      end if;
+  9     end;
+ 10  /
+old   2:     a varchar(5):='&a';
+new   2:     a varchar(5):=' Satish';
+declare
+*
+ERROR at line 1:
+ORA-06502: PL/SQL: numeric or value error: character string buffer too small
+ORA-06512: at line 2
+
+
+SQL> declare
+  2     num varchar(5):='&num';
+  3      begin
+  4      if(num='A' and num='Z')then
+  5      dbms_output.put_line(' THis is upper case');
+  6      else
+  7      dbms_output.put_line(' THis is lower case');
+  8      end if;
+  9     end;
+ 10  /
+Enter value for num: S
+old   2:    num varchar(5):='&num';
+new   2:    num varchar(5):='S';
+THis is lower case
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2     num varchar(5):='&num';
+  3      begin
+  4      if(num='A' or num='Z')then
+  5      dbms_output.put_line(' THis is upper case');
+  6      else
+  7      dbms_output.put_line(' THis is lower case');
+  8      end if;
+  9     end;
+ 10  /
+Enter value for num: S
+old   2:    num varchar(5):='&num';
+new   2:    num varchar(5):='S';
+THis is lower case
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2     num varchar(5):='&num';
+  3      begin
+  4      if(num='A' or num='Z')then
+  5      dbms_output.put_line(' THis is upper case');
+  6      else
+  7      dbms_output.put_line(' THis is lower case');
+  8      end if;
+  9     end;
+ 10  /
+Enter value for num: a
+old   2:    num varchar(5):='&num';
+new   2:    num varchar(5):='a';
+THis is lower case
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2     num varchar(5):='&num';
+  3      begin
+  4      if(num='A' or num='Z')then
+  5      dbms_output.put_line(' THis is upper case');
+  6      else
+  7      dbms_output.put_line(' THis is lower case');
+  8      end if;
+  9     end;
+ 10  /
+Enter value for num: a
+old   2:    num varchar(5):='&num';
+new   2:    num varchar(5):='a';
+THis is lower case
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for num: A
+old   2:    num varchar(5):='&num';
+new   2:    num varchar(5):='A';
+THis is upper case
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for num: W
+old   2:    num varchar(5):='&num';
+new   2:    num varchar(5):='W';
+THis is lower case
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for num: Z
+old   2:    num varchar(5):='&num';
+new   2:    num varchar(5):='Z';
+THis is upper case
+
+PL/SQL procedure successfully completed.
+
+SQL>
+SQL> declare
+  2     num varchar(5):='&num';
+  3      begin
+  4      if(num>'A' or num<Z')then
+  5      dbms_output.put_line(' THis is upper case');
+  6      else
+  7      dbms_output.put_line(' THis is lower case');
+  8      end if;
+  9     end;
+ 10  /
+Enter value for num: S
+old   2:    num varchar(5):='&num';
+new   2:    num varchar(5):='S';
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> declare
+  2     num varchar(5):='&num';
+  3      begin
+  4      if(num>'A' or num<'Z')then
+  5      dbms_output.put_line(' THis is upper case');
+  6      else
+  7      dbms_output.put_line(' THis is lower case');
+  8      end if;
+  9     end;
+ 10  /
+Enter value for num: S
+old   2:    num varchar(5):='&num';
+new   2:    num varchar(5):='S';
+THis is upper case
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  num varchar(5):='&num';
+  3  begin
+  4  if(num>'A' or num<'Z')then
+  5  dbms_output.put_line(' THis is upper case');
+  6  else if(num>'A' or num<'Z')then
+  7  dbms_output.put_line(' THis is lower case');
+  8  else
+  9  dbms_output.put_line(' It is symbol');
+ 10  end if;
+ 11  end;
+ 12  /
+Enter value for num: s
+old   2: num varchar(5):='&num';
+new   2: num varchar(5):='s';
+end;
+   *
+ERROR at line 11:
+ORA-06550: line 11, column 4:
+PLS-00103: Encountered the symbol ";" when expecting one of the following:
+if
+
+
+SQL> declare
+  2  num varchar(5):='&num';
+  3  begin
+  4  if(num>'A' or num<'Z')then
+  5  dbms_output.put_line(' THis is upper case');
+  6  if(num>'a' or num<'z')then
+  7  dbms_output.put_line(' THis is lower case');
+  8  else
+  9  dbms_output.put_line(' It is symbol');
+ 10  end if;
+ 11  end;
+ 12  /
+Enter value for num: *
+old   2: num varchar(5):='&num';
+new   2: num varchar(5):='*';
+end;
+   *
+ERROR at line 11:
+ORA-06550: line 11, column 4:
+PLS-00103: Encountered the symbol ";" when expecting one of the following:
+if
+
+
+SQL> /
+Enter value for num: a
+old   2: num varchar(5):='&num';
+new   2: num varchar(5):='a';
+end;
+   *
+ERROR at line 11:
+ORA-06550: line 11, column 4:
+PLS-00103: Encountered the symbol ";" when expecting one of the following:
+if
+
+
+SQL> declare
+  2  num varchar(5):='&num';
+  3  begin
+  4  if(num>'A' or num<'Z')then
+  5  dbms_output.put_line(' THis is upper case');
+  6  else if(num>'a' or num<'z')then
+  7  dbms_output.put_line(' THis is lower case');
+  8  else
+  9  dbms_output.put_line(' It is symbol');
+ 10  end if;
+ 11  end;
+ 12  /
+Enter value for num: s
+old   2: num varchar(5):='&num';
+new   2: num varchar(5):='s';
+end;
+   *
+ERROR at line 11:
+ORA-06550: line 11, column 4:
+PLS-00103: Encountered the symbol ";" when expecting one of the following:
+if
+
+
+SQL> declare
+  2  num varchar(5):='&num';
+  3  begin
+  4  if(num>'A' or num<'Z' and num>'a' or num<'z')then
+  5  dbms_output.put_line(' THis is Charater case');
+  6  else
+  7  dbms_output.put_line(' It is symbol');
+  8  end if;
+  9  end;
+ 10  /
+Enter value for num: S
+old   2: num varchar(5):='&num';
+new   2: num varchar(5):='S';
+THis is Charater case
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for num: *
+old   2: num varchar(5):='&num';
+new   2: num varchar(5):='*';
+THis is Charater case
+
+PL/SQL procedure successfully completed.
+
+SQL> /
+Enter value for num: %
+old   2: num varchar(5):='&num';
+new   2: num varchar(5):='%';
+THis is Charater case
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  num varchar(5):='&num';
+  3  begin
+  4  if(num>'A' or num<'Z' or num>'a' or num<'z')then
+  5  dbms_output.put_line(' THis is Charater case');
+  6  else
+  7  dbms_output.put_line(' It is symbol');
+  8  end if;
+  9  end;
+ 10  /
+Enter value for num: %
+old   2: num varchar(5):='&num';
+new   2: num varchar(5):='%';
+THis is Charater case
+
+PL/SQL procedure successfully completed.
+
+SQL> declare
+  2  num varchar(5):='&num';
+  3  begin
+  4  accept a prompt 'Enter Your character';
+  5  if(num>'A' or num<'Z' or num>'a' or num<'z')then
+  6  dbms_output.put_line(' THis is Charater case');
+  7  else
+  8  dbms_output.put_line(' It is symbol');
+  9  end if;
+ 10  end;
+ 11  /
+Enter value for num: d
+old   2: num varchar(5):='&num';
+new   2: num varchar(5):='d';
+accept a prompt 'Enter Your character';
+       *
+ERROR at line 4:
+ORA-06550: line 4, column 8:
+PLS-00103: Encountered the symbol "A" when expecting one of the following:
+:= . ( @ % ;
+
+
+SQL> declare
+  2  num Number:=&num;
+  3  begin
+  4  if mod(num,2)=0
+  5  then
+  6  dbms_output.put_line(' it is Even Number')
+  7  ;
+  8  else
+  9  dbms_output.put_line(' it is Odd Number')'
+ 10  ;
+ 11  end;
+ 12  /
+Enter value for num: declare
+old   2: num Number:=&num;
+new   2: num Number:=declare;
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> num Number:=&num;
+SP2-0734: unknown command beginning "num Number..." - rest of line ignored.
+SQL> declare
+  2  num Number:=&num;
+  3  begin
+  4  if mod(num,2)=0
+  5  then
+  6  dbms_output.put_line(' it is Even Number');
+  7  else
+  8  dbms_output.put_line(' it is  Number');
+  9  end if;
+ 10  end;
+ 11  /
+Enter value for num: 11
+old   2: num Number:=&num;
+new   2: num Number:=11;
+it is  Number
+
+PL/SQL procedure successfully completed.
+
+SQL>

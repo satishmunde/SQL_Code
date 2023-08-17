@@ -1,0 +1,40 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Thu May 26 10:52:59 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> conn system/2002
+Connected.
+SQL> set serveroutput on;
+SQL> begin
+  2  dbms_output.put_line('hello ');
+  3  end;
+  4  /
+hello
+
+PL/SQL procedure successfully completed.
+
+
+
+SQL> declare
+  2  a number(2):=10;
+  3  b number(2):=0;
+  4  c number(2);
+  5  divide_zero exception;
+  6  begin
+  7  if(b=0)then
+  8  raise divide_zero;
+  9  else
+ 10  c:=a/b;
+ 11  dbms_output.put_line('division is'||c);
+ 12  end if;
+ 13  end;
+ 14  /
+declare
+*
+ERROR at line 1:
+ORA-06510: PL/SQL: unhandled user-defined exception
+ORA-06512: at line 8
+
+
+SQL>

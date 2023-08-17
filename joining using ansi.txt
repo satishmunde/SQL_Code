@@ -1,0 +1,109 @@
+
+SQL*Plus: Release 10.2.0.1.0 - Production on Sat May 7 10:49:55 2022
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+SQL> conn system\2002
+Enter password:
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+SQL>
+SQL>
+SQL> conn
+Enter user-name: system
+Enter password:
+Connected.
+SQL> create table emp(id number(3),Name varchar(10),Surname varchar(10));
+create table emp(id number(3),Name varchar(10),Surname varchar(10))
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> select * from emp;
+
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish     Kandhar  CS         Developer       60000       5000
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+         5 Yogesh     Loha     CS         Developer       60000       5000
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+6 rows selected.
+
+SQL> select * from product joiin emp on (product.id=emp.id);
+select * from product joiin emp on (product.id=emp.id)
+                            *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> select * from product join emp on (product.id=emp.id);
+
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         1 Satish              431714 Fakirdarawadi   Self            8459896076
+         1 Satish     Kandhar  CS         Developer       60000       5000
+
+         2 Vaibhav             431712 Basmath         Best Frined     9579200052
+         2 Vaibhav    Basmath  CS         Developer       60000       5000
+
+         3 Vijay               431812 Kinwat          Best Frined
+         3 Shraddha   Pusad    CS         Developer       60000       5000
+
+
+        ID NAME                   PIN CITY            RELATION             PH_NO
+---------- --------------- ---------- --------------- --------------- ----------
+        ID NAME       CITY     FIELD      POST           SALARY         TA
+---------- ---------- -------- ---------- ---------- ---------- ----------
+         4 Shraddha            421223 Pusad           Best Frined
+         4 Vijay      Kinwat   Art        Collecter       65000       5000
+
+         5 Rushi               431714 Fakirdarawadi   Brother
+         5 Yogesh     Loha     CS         Developer       60000       5000
+
+         6 Datta               431714 Fakirdarawadi   Brother
+         6 Vishal     Nanded   CS         Developer       60000       5000
+
+
+6 rows selected.
+
+SQL> select *from product join emp using(name);
+
+NAME               ID        PIN CITY            RELATION             PH_NO
+---------- ---------- ---------- --------------- --------------- ----------
+        ID CITY     FIELD      POST           SALARY         TA
+---------- -------- ---------- ---------- ---------- ----------
+Satish              1     431714 Fakirdarawadi   Self            8459896076
+         1 Kandhar  CS         Developer       60000       5000
+
+Vaibhav             2     431712 Basmath         Best Frined     9579200052
+         2 Basmath  CS         Developer       60000       5000
+
+Vijay               3     431812 Kinwat          Best Frined
+         4 Kinwat   Art        Collecter       65000       5000
+
+
+NAME               ID        PIN CITY            RELATION             PH_NO
+---------- ---------- ---------- --------------- --------------- ----------
+        ID CITY     FIELD      POST           SALARY         TA
+---------- -------- ---------- ---------- ---------- ----------
+Shraddha            4     421223 Pusad           Best Frined
+         3 Pusad    CS         Developer       60000       5000
+
+
+self join
+
+select *from student s1, student s2 where s1.id=s2.id;
+
+        ID NAME               ID NAME
+---------- ---------- ---------- ----------
+       101 Satish            101 Satish
+       102 Tushar            102 Tushar
+       103 Avinash           103 Avinash
